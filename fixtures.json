@@ -1,0 +1,34 @@
+[
+  {
+    "model":  "lessons.class",
+    "pk": 1,
+    "fields": {
+      "class_name": "6А",
+      "lessons": "Математика"
+    }
+  },
+  {
+    "model":  "class.lessons",
+    "pk": 2,
+    "fields": {
+      "class_name": "6А",
+      "lessons": "Родной язык"
+    }
+  },
+  {
+    "model":  "class.lessons",
+    "pk": 3,
+    "fields": {
+      "class_name": "6А",
+      "lessons": "Русский язык"
+    }
+  },
+  {
+    "model":  "class.lessons",
+    "pk": 2,
+    "fields": {
+      "class_name": "6А",
+      "lessons": "Физкультура"
+    }
+  }
+]
