@@ -10,6 +10,10 @@ class Organization(models.Model):
         max_length=100,
         db_index=True,
         unique=True,
+        blank=True,
+        null=True,
+        default='',
+        # editable=False
     )
     # time_table = models.ForeignKey(
     #     TimeTable,
@@ -49,7 +53,7 @@ class TimeTable(models.Model):
         related_name='les'
     )
     number_lessons = models.PositiveIntegerField(
-        max_length=10,
+        # max_length=10,
         # related_name='numbers',
         # verbose_name='Номер урока'
         validators=[MinValueValidator(1)]
@@ -70,7 +74,6 @@ class Class(models.Model):
     title = models.CharField(
         'Название класса',
         max_length=200,
-        db_index=True,
         unique=True
     )
     time_table = models.ForeignKey(
@@ -79,6 +82,11 @@ class Class(models.Model):
         related_name='time_table_class',
         verbose_name = 'Расписание класса'
     )
+    class Meta:
+        verbose_name = 'Класс'
+        verbose_name_plural = 'Классы'
+        ordering = ['title']
+        
 
 
 # class Organization(models.Model):
