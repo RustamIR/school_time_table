@@ -2,51 +2,20 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-USER = 'user'
-PARENTS = 'parents'
-TEACHER = 'teacher'
-ADMIN = 'admin'
-ROLE = [USER, PARENTS, TEACHER, ADMIN]
-
-
-class Role(models.Model):
-    role = models.CharField(
-        "Роль",
-        # choices=ROLE,
-        # default=ROLE,
-        max_length=50,
-        db_index=True
-    )
-    text = models.TextField(
-        max_length=50
-    )
-    levels = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name='роль'
-        verbose_name_plural='роли'
-
-    @property
-    def is_admin(self):
-        return self.role == self.ADMIN or self.is_admin
-
-    @property
-    def is_teacher(self):
-        return self.role == self.TEACHER or self.is_teacher
-
-    @property
-    def is_parents(self):
-        return self.role == self.PARENTS or self.is_parents
-
-    def __str__(self):
-        return self.role
-
-
 class Users(AbstractUser):
+    USER = 'user'
+    PARENTS = 'parents'
+    TEACHER = 'teacher'
+    ADMIN = 'admin'
+    ROLE = [(USER, USER),
+            (PARENTS, PARENTS),
+            (TEACHER, TEACHER),
+            (ADMIN, ADMIN)]
+
     role = models.CharField(
         max_length=40,
-        #choices=ROLE,
-        #default=ROLE,
+        choices=ROLE,
+        default=ROLE,
         verbose_name='Роль'
     )
     bio = models.TextField(max_length=250, blank=True)
@@ -61,4 +30,74 @@ class Users(AbstractUser):
 
     class Meta:
         ordering = ["username"]
+
+    @property
+    def is_admin(self):
+        return self.role == self.ADMIN or self.is_admin
+
+    @property
+    def is_teacher(self):
+        # assert isinstance(self.is_teacher)
+        return self.role == self.TEACHER or self.is_teacher
+
+    @property
+    def is_parents(self):
+        return self.role == self.PARENTS or self.is_parents
+
+    def __str__(self):
+        return self.role
+
+
+
+# USER = 'user'
+# PARENTS = 'parents'
+# TEACHER = 'teacher'
+# ADMIN = 'admin'
+# ROLE = [(USER, USER),
+#         (PARENTS, PARENTS),
+#         (TEACHER, TEACHER),
+#         (ADMIN, ADMIN)]
+
+
+# class Role(AbstractUser):
+#     USER = 'user'
+#     PARENTS = 'parents'
+#     TEACHER = 'teacher'
+#     ADMIN = 'admin'
+#     ROLE = [(USER, USER),
+#             (PARENTS, PARENTS),
+#             (TEACHER, TEACHER),
+#             (ADMIN, ADMIN)]
+#
+#     role = models.CharField(
+#         "Роль",
+#         choices=ROLE,
+#         default=ROLE,
+#         max_length=50,
+#         db_index=True
+#     )
+#
+#
+#     class Meta:
+#         verbose_name='роль'
+#         verbose_name_plural='роли'
+#
+#     # def __init__(self, *args, **kwargs):
+#     #     super().__init__(args, kwargs)
+#
+#     @property
+#     def is_admin(self):
+#         return self.role == self.ADMIN or self.is_admin
+#
+#     @property
+#     def is_teacher(self):
+#         assert isinstance(self.is_teacher)
+#         return self.role == self.TEACHER or self.is_teacher
+#
+#     @property
+#     def is_parents(self):
+#         return self.role == self.PARENTS or self.is_parents
+#
+#     def __str__(self):
+#         return self.role
 

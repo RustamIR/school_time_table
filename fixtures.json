@@ -1,34 +1,146 @@
 [
   {
-    "model":  "lessons.class",
-    "pk": 1,
-    "fields": {
-      "class_name": "6А",
-      "lessons": "Математика"
-    }
-  },
-  {
-    "model":  "class.lessons",
-    "pk": 2,
-    "fields": {
-      "class_name": "6А",
-      "lessons": "Родной язык"
-    }
-  },
-  {
-    "model":  "class.lessons",
-    "pk": 3,
-    "fields": {
-      "class_name": "6А",
-      "lessons": "Русский язык"
-    }
-  },
-  {
-    "model":  "class.lessons",
-    "pk": 2,
-    "fields": {
-      "class_name": "6А",
-      "lessons": "Физкультура"
+    "Organization": "Школа №23",
+    "ClassRoom": {
+      {
+        "title": 111,
+        "pk": 1,
+        "teacher": "Людмила Петровна"
+      },
+      {
+        "title": 301,
+        "pk": 2,
+        "teacher": "Оганисян Петечкин"
+      },
+      {
+        "title": 120,
+        "pk": 3,
+        "teacher": "Лалейл Абкрадович"
+      },
+      {
+        "title": 212,
+        "pk": 4,
+        "teacher": "Вася Бутыль"
+      },
+      {
+        "title": 203,
+        "pk": 5,
+        "teacher": "Аксенья Луитена"
+      }
+    },
+    "Class": {
+      "name": "6А",
+      "pk": 1,
+      "fields": {
+          {
+            "lessons": {
+                "pk": 1,
+                "title": "Алгебра"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 2,
+              "title": "Русский язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 3,
+              "title": "Русский язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 4,
+              "title": "Родной язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 5,
+              "title": "Физкультура"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 6,
+              "title": "Геометрия"
+            }
+          }
+      }
+    },
+    "Class": {
+      "name": "5А",
+      "pk": 3,
+      "fields":
+          {
+            "lessons": {
+                "pk": 1,
+                "title": "Математика"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 2,
+              "title": "Английский язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 3,
+              "title": "Русский язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 4,
+              "title": "Родной язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 5,
+              "title": "Литература"
+            }
+          },
+
+    },
+    "Class": {
+      "name": "4Б",
+      "pk": 1,
+      "fields":
+          {
+            "lessons": {
+                "pk": 1,
+                "title": "Математика"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 2,
+              "title": "Английский язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 3,
+              "title": "Русский язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 4,
+              "title": "Родной язык"
+            }
+          },
+          {
+            "lessons": {
+              "pk": 5,
+              "title": "Литература"
+            }
+          },
+
     }
   }
 ]
