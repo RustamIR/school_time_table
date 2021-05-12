@@ -3,21 +3,21 @@ from django.db import models
 
 
 class Users(AbstractUser):
-    USER = 'user'
-    PARENTS = 'parents'
-    TEACHER = 'teacher'
-    ADMIN = 'admin'
-    ROLE = [(USER, USER),
-            (PARENTS, PARENTS),
-            (TEACHER, TEACHER),
-            (ADMIN, ADMIN)]
-
-    role = models.CharField(
-        max_length=40,
-        choices=ROLE,
-        default=USER,
-        verbose_name='Роль'
-    )
+    # USER = 'user'
+    # PARENTS = 'parents'
+    # TEACHER = 'teacher'
+    # ADMIN = 'admin'
+    # ROLE = [(USER, USER),
+    #         (PARENTS, PARENTS),
+    #         (TEACHER, TEACHER),
+    #         (ADMIN, ADMIN)]
+    #
+    # role = models.CharField(
+    #     max_length=40,
+    #     choices=ROLE,
+    #     default=USER,
+    #     verbose_name='Роль'
+    # )
     bio = models.TextField(max_length=250, blank=True)
     email = models.EmailField(unique=True, verbose_name='Почта')
     username = models.CharField(max_length=250,
@@ -31,23 +31,23 @@ class Users(AbstractUser):
     class Meta:
         ordering = ["username"]
 
-    @property
-    def is_admin(self):
-        return self.role == self.ADMIN or self.is_admin
-
-    @property
-    def is_teacher(self):
-        # assert isinstance(self.is_teacher)
-        return self.role == self.TEACHER or self.is_teacher
-
-    @property
-    def is_parents(self):
-        return self.role == self.PARENTS or self.is_parents
-
-    def __str__(self):
-        return self.role
-
-
+    # @property
+    # def is_admin(self):
+    #     return self.role == self.ADMIN or self.is_admin
+    #
+    # @property
+    # def is_teacher(self):
+    #     # assert isinstance(self.is_teacher)
+    #     return self.role == self.TEACHER or self.is_teacher
+    #
+    # @property
+    # def is_parents(self):
+    #     return self.role == self.PARENTS or self.is_parents
+    #
+    # def __str__(self):
+    #     return self.role
+    #
+    #
 
 # USER = 'user'
 # PARENTS = 'parents'
